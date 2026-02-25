@@ -67,7 +67,7 @@ Aucune dépendance à installer — le site fonctionne directement dans le navig
 
 ### Modifier le numéro WhatsApp
 
-Recherchez `wa.me/2210197889595` dans `index.html` et remplacez par votre numéro (4 occurrences).
+Recherchez `wa.me/22997889595` dans `index.html` et remplacez par votre numéro (4 occurrences).
 
 ### Personnaliser les vins
 
