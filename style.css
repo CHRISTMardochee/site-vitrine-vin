@@ -1,0 +1,1101 @@
+/* ===========================
+   DESIGN SYSTEM & VARIABLES
+   =========================== */
+:root {
+    --burgundy: #722F37;
+    --burgundy-dark: #4A1E23;
+    --burgundy-light: #8B3A42;
+    --gold: #C9A84C;
+    --gold-light: #D4B96A;
+    --gold-dark: #A8883A;
+    --cream: #FAF3E0;
+    --cream-dark: #F0E6CC;
+    --black: #1A1A1A;
+    --black-light: #2D2D2D;
+    --white: #FFFFFF;
+    --gray: #888888;
+    --gray-light: #E8E8E8;
+    --whatsapp: #25D366;
+    --whatsapp-dark: #1EBE57;
+    --rose: #E8A0B5;
+    --blanc: #E8D5A3;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+    --shadow-glow: 0 0 40px rgba(201,168,76,0.15);
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: 0.2s ease;
+}
+
+/* ===========================
+   RESET & BASE
+   =========================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--black);
+    background: var(--cream);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===========================
+   BUTTONS
+   =========================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--gold);
+}
+
+.btn-primary:hover {
+    background: var(--gold);
+    color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-whatsapp {
+    background: var(--whatsapp);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+}
+
+.btn-whatsapp:hover {
+    background: var(--whatsapp-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+}
+
+.btn-large {
+    padding: 18px 42px;
+    font-size: 1.05rem;
+}
+
+/* ===========================
+   NAVIGATION
+   =========================== */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: var(--transition);
+}
+
+#navbar.scrolled {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 0;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1001;
+}
+
+.logo-icon {
+    font-size: 1.6rem;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+}
+
+.nav-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.nav-links a:not(.nav-cta)::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: var(--transition);
+}
+
+.nav-links a:not(.nav-cta):hover {
+    color: var(--white);
+}
+
+.nav-links a:not(.nav-cta):hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: var(--gold);
+    color: var(--black) !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.nav-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 4px;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+#hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&h=900&fit=crop') center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(114,47,55,0.6) 50%, rgba(26,26,26,0.8) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    color: var(--white);
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.hero-desc {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-scroll span {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+    50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ===========================
+   SECTION ELEMENTS
+   =========================== */
+.section-tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.section-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), var(--gold-light));
+    margin-bottom: 24px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header .section-divider {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-desc {
+    font-size: 1.05rem;
+    color: var(--gray);
+    max-width: 560px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* ===========================
+   ABOUT SECTION
+   =========================== */
+#about {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.about-image-accent {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--gold);
+    border-radius: var(--radius-md);
+    z-index: -1;
+}
+
+.about-text {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 300;
+    line-height: 1.9;
+}
+
+.about-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--gray-light);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--burgundy);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ===========================
+   WINES SECTION
+   =========================== */
+#wines {
+    padding: 120px 0;
+    background: var(--cream);
+}
+
+.wine-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 28px;
+    border-radius: 50px;
+    border: 1.5px solid var(--gray-light);
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gray);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    border-color: var(--burgundy);
+    color: var(--burgundy);
+    background: rgba(114,47,55,0.05);
+}
+
+.wines-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.wine-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.wine-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.wine-card.hidden {
+    display: none;
+}
+
+.wine-card-image {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+
+.wine-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.wine-card:hover .wine-card-image img {
+    transform: scale(1.05);
+}
+
+.wine-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--gold);
+    color: var(--black);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.wine-card-body {
+    padding: 24px;
+}
+
+.wine-type {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.wine-type-rouge {
+    background: rgba(114,47,55,0.1);
+    color: var(--burgundy);
+}
+
+.wine-type-blanc {
+    background: rgba(232,213,163,0.4);
+    color: var(--gold-dark);
+}
+
+.wine-type-rose {
+    background: rgba(232,160,181,0.2);
+    color: #C06080;
+}
+
+.wine-name {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: var(--black);
+}
+
+.wine-notes {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-bottom: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.wine-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-light);
+}
+
+.wine-year {
+    font-size: 0.85rem;
+    color: var(--gray);
+    letter-spacing: 1px;
+}
+
+.wine-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--burgundy);
+}
+
+.wines-cta {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* ===========================
+   DOMAIN SECTION
+   =========================== */
+#domain {
+    position: relative;
+}
+
+.domain-parallax {
+    position: relative;
+    padding: 140px 0;
+    background: url('https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1600&h=900&fit=crop') center/cover no-repeat fixed;
+}
+
+.domain-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(74,30,35,0.85) 100%);
+}
+
+.domain-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+#domain .section-title {
+    color: var(--white);
+}
+
+.domain-text {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    line-height: 1.9;
+    margin-bottom: 50px;
+}
+
+.domain-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.feature {
+    text-align: center;
+    padding: 32px 20px;
+    border-radius: var(--radius-md);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: var(--transition);
+}
+
+.feature:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.feature h4 {
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.feature p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+}
+
+/* ===========================
+   TESTIMONIALS SECTION
+   =========================== */
+#testimonials {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.testimonial-card {
+    padding: 40px 32px;
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-stars {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    font-weight: 300;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--black);
+}
+
+.author-title {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: 2px;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+#contact {
+    background: var(--black);
+    color: var(--white);
+    padding: 80px 0 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-brand .logo-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.footer-brand h3 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    color: var(--white);
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 24px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.footer-links h4,
+.footer-contact h4,
+.footer-hours h4 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.footer-links li,
+.footer-contact li,
+.footer-hours li {
+    margin-bottom: 12px;
+}
+
+.footer-links a,
+.footer-contact li,
+.footer-hours li {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    padding-left: 6px;
+}
+
+.footer-bottom {
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+}
+
+.footer-legal {
+    margin-top: 8px;
+    font-size: 0.75rem !important;
+    font-style: italic;
+}
+
+/* ===========================
+   FLOATING WHATSAPP BUTTON
+   =========================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    transition: var(--transition);
+    animation: whatsappPulse 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+    animation: none;
+}
+
+.whatsapp-float .whatsapp-tooltip {
+    position: absolute;
+    right: 76px;
+    background: var(--black);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-md);
+}
+
+.whatsapp-float .whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: var(--black);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+}
+
+@keyframes whatsappPulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 6px 24px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0.1); }
+}
+
+/* ===========================
+   REVEAL ANIMATIONS
+   =========================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 1024px) {
+    .about-grid {
+        gap: 50px;
+    }
+
+    .wines-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .domain-features {
+        gap: 24px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        background: rgba(26,26,26,0.98);
+        backdrop-filter: blur(20px);
+        transform: translateX(100%);
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        color: var(--white);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .about-image-accent {
+        display: none;
+    }
+
+    .about-stats {
+        justify-content: space-around;
+    }
+
+    .wines-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .domain-parallax {
+        padding: 80px 0;
+        background-attachment: scroll;
+    }
+
+    .domain-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 3.2rem);
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+    }
+
+    #about,
+    #wines,
+    #testimonials {
+        padding: 80px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+    }
+
+    .whatsapp-float .whatsapp-tooltip {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+        max-width: 300px;
+    }
+
+    .about-stats {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .wine-filters {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+}
